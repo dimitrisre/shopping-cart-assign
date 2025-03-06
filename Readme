@@ -1,0 +1,14 @@
+This program uses sqlite to persist items inventory and discounts.
+In shopping_cart.db there are two tables items and discounts.
+When we want a new Item to be available for purchase then it should be added to the items table.
+When a new discount is to be added then it should be added to the discounts table.
+
+Instruction to compile
+sbt compile
+
+Instructions to run
+sbt "run item1 item2 item3 ..."
+eg. sbt "run Apples Bread Soup Milk Apples"
+
+Instructions to run tests
+sbt test
