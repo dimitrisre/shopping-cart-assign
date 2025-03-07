@@ -2,6 +2,8 @@ import db.entities.{Discount, Item}
 import db.tables.{DiscountRepository, ItemRepository}
 import model.{AppliedDiscount, ItemDTO, ShoppingCart}
 
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, Future}
@@ -11,21 +13,36 @@ object Main {
 
     val itemsRepository = new ItemRepository()
     val discountRepository = new DiscountRepository()
-
+//    val currentTime = Instant.now().toEpochMilli
+//    val oneWeekEnd = Instant.now().plus(7, ChronoUnit.DAYS).toEpochMilli
+//
 //    Await.result(
 //      for {
 //        _ <- discountRepository.createTable()
 //        _ <- discountRepository.insertDiscount(
 //          Discount(
 //            None,
-//            "2 bags of Apples, Milk 10%",
-//            "2 bags of Apples, Milk 10%",
+//            "Bread half price",
+//            "Buy 2 tins of soup and get a loaf of bread for half price",
 //            None,
 //            None,
+//            None,
+//            Some(BigDecimal(0.50)),
+//            Some(3),
+//            Array(2, 2)
+//          )
+//        )
+//        _ <- discountRepository.insertDiscount(
+//          Discount(
+//            None,
+//            "Apples 10% off",
+//            "Apples have a 10% discount off their normal price this week",
+//            Some(currentTime),
+//            Some(oneWeekEnd),
 //            None,
 //            Some(BigDecimal(0.10)),
-//            Some(4),
-//            Array(1, 1)
+//            Some(1),
+//            Array.empty
 //          )
 //        )
 //      } yield ()

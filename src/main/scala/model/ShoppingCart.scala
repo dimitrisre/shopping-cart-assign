@@ -15,7 +15,7 @@ class ShoppingCart(items: List[Item], discounts: List[Discount]){
       val difference = affectedPrice - afterPrice
 
       val descriptions = if(difference > 0)
-        stepDescriptions :+ s"${discount.discount.description} off: $difference"
+        stepDescriptions :+ s"${discount.discount.name} off: $difference"
       else stepDescriptions
 
       (afterPrice, descriptions)
